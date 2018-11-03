@@ -1,8 +1,6 @@
 const daysContainerData = [];
 
-
 export function createDetailData (elem) {
-
   const data = elem.data;
   const firstElemDate = data[0].datetime;
   let day = [data[0]];
@@ -24,7 +22,6 @@ export function createDetailData (elem) {
       daysContainerData.push(day);
     }
   }
-
   fillDetailData(0);
 }
 

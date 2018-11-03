@@ -20,7 +20,6 @@ export function fillCurrentData (elem){
     location: '<i class="fas fa-map-marker-alt"></i>'
   };
 
-
   location.innerHTML = `${icons.location}<span>${cityName}, ${countryName}</span>`;
   weatherIconBlock.innerHTML = `<img src="./images/icons/${weatherIcon}.png">`;
   temp.innerHTML = `${Math.round(data.temp)}<img src="./images/icons/${tempSymbol}.png">`;
