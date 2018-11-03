@@ -1,0 +1,163 @@
+$block-background-color: rgba(52, 52, 52, 0.31);
+
+.current-weather {
+  display: flex;
+  width: 100%;
+  height: 27%;
+
+  &-icon {
+    width: 18%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2.5%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &-temperature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38.5%;
+    height: 100%;
+    font-size: 150px;
+    color: white;
+    padding: 0;
+    margin-right: 2.5%;
+
+    img {
+      width: 20%;
+      margin-left: 5%;
+    }
+  }
+
+  &-data {
+    display: flex;
+    flex-direction: column;
+    width: 38.5%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: $block-background-color;
+
+    li {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      height: 25%;
+      font-size: 25px;
+      color: white;
+    }
+
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+    }
+  }
+}
+
+.days-container {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+  margin: 3% 0 0 0;
+
+  & > li {
+    width: 18%;
+    list-style: none;
+    background-color: $block-background-color;
+  }
+}
+
+.day-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  color: white;
+
+  &:hover {
+    background-color: rgba(52, 52, 52, 0.6);
+    cursor: pointer;
+  }
+
+  & > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 33%;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  &-weather {
+    img {
+      width: 50%;
+    }
+  }
+
+  &-temp {
+    img {
+      width: 12%;
+      margin-left: 1%;
+    }
+  }
+}
+
+.detail-weather {
+  width: 100%;
+  height: 45%;
+  margin: 3% 0 0 0;
+  background-color: $block-background-color;
+
+  tr {
+    display: flex;
+    align-items: center;
+    height: 15%;
+  }
+
+  tr:nth-child(2) {
+    height: 25%;
+  }
+
+  td {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 9%;
+    font-size: 20px;
+    color: white;
+  }
+
+  td:first-child {
+    width: 18%;
+  }
+
+  td:nth-child(even) {
+    margin-left: 2%;
+  }
+
+  img {
+    width: 80%;
+  }
+}

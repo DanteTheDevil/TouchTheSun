@@ -1,0 +1,22 @@
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form {
+  @extends %flex-center;
+
+  height: 20%;
+  width: 100%;
+}
+
+.search-bar {
+  width: 90%;
+  height: 100%;
+}
+
+.search-button {
+  width: 10%:
+  height: 100%;
+}

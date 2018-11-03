@@ -1,0 +1,124 @@
+$block-background-color: rgba(52, 52, 52, 0.31);
+
+.logo-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 65%;
+
+  .logo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 59%;
+
+    img {
+      width: 20%;
+
+      &:nth-child(2) {
+        width: 30%;
+      }
+    }
+  }
+
+  .hint {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 38.5%;
+    height: 100%;
+    background-color: $block-background-color;
+    color: white;
+
+    & i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      width: 20%;
+      color: white;
+    }
+
+    & span {
+      width: 80%;
+      font-size: 20px;
+    }
+  }
+}
+
+.location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 27%;
+  margin-top: 3%;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 59%;
+  height: 100%;
+  font-size: 30px;
+
+  input[type=text] {
+    border: 0;
+    margin: 0;
+    padding: 0 0 0 5%;
+    text-decoration: none;
+    outline: none;
+    height: 100%;
+    width: 83%;
+    font-size: 25px;
+  }
+
+  input[type=text]::placeholder {
+    font-size: 30px;
+    color: rgba(128, 128, 128, 0.61);
+  }
+
+  button[type=submit] {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    background-color: $block-background-color;
+    height: 100%;
+    width: 12%;
+    font-size: 25px;
+    color: white;
+
+    &:hover {
+      background-color: rgba(52, 52, 52, 0.6);
+      cursor: pointer;
+    }
+  }
+}
+
+.current-location {
+  display: flex;
+  align-items: center;
+  background-color: $block-background-color;
+  width: 38.5%;
+  height: 100%;
+  font-size: 20px;
+  color: white;
+
+  & i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    width: 20%;
+    height: 100%;
+  }
+
+  & span {
+    display: flex;
+    width: 80%;
+  }
+}

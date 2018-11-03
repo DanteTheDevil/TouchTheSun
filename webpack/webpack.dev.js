@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -8,7 +9,7 @@ module.exports = {
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, '../dist')
+    path: path.resolve(__dirname, '../')
   },
   devtool: 'cheap-module-eval-source-map',
   module: {
@@ -30,7 +31,7 @@ module.exports = {
           {
             loader: 'css-loader', // translates CSS into CommonJS
             query: {
-              modules: true,
+              modules: false,
               camelCase: true,
               localIdentName: '[name]__[local]___[hash:base64:5]'
             }
@@ -39,13 +40,28 @@ module.exports = {
             loader: 'sass-loader' // compiles Sass to CSS
           }
         ]
+      },
+      {
+        test: /\.(svg|png|jpg|jpeg|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'images/'
+          }
+        }
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve('./index.html')
+      template: path.resolve('./src/index.html')
     }),
+    new CopyWebpackPlugin([
+      {
+        from: './src/images',
+        to: './images'
+      },
+    ])
   ],
   devServer: {
     contentBase: path.join(__dirname, '../'),
