@@ -2,7 +2,7 @@ import {fillForecastData} from './forecast_data';
 import {createDetailData} from './detail_data';
 import {fillCurrentData} from './current_data';
 
-export function getData (city) {
+export function getData (city, hintElem) {
   const daily_forecast = 'https://api.weatherbit.io/v2.0/forecast/daily?city=';
   const curr_forecast = 'https://api.weatherbit.io/v2.0/current?city=';
   const detail_forecast = 'https://api.weatherbit.io/v2.0/forecast/3hourly?city=';
@@ -24,11 +24,12 @@ export function getData (city) {
     .catch(error => {
       switch (error.code) {
         case 204: {
-          hintUpdate('You have typed a wrong city name. Try again!');
+          hintUpdate(hintElem, 'You have typed a wrong city name. Try again!');
           throw new Error(`\n Error: ${error.code}\n Message: ${error.message}`);
         }
       }
     });
+  return true;
 }
 
 function Request (url) {
@@ -49,11 +50,10 @@ function Request (url) {
   });
 }
 
-function hintUpdate (text) {
+function hintUpdate (hintElem, text) {
   let colorChanged = false;
-  const hintText = document.querySelector('.hint-text');
-  const questionIcon = document.querySelector('.fa-question-circle');
-  const previousText = hintText.innerHTML;
+  const questionIcon = hintElem.querySelector('.fa-question-circle');
+  const previousText = hintElem.innerHTML;
   const updateTime = 7000;
   const colorChangeTime = 400;
   const iconChangeTimer = setInterval(() => {
@@ -66,9 +66,9 @@ function hintUpdate (text) {
     }
   }, colorChangeTime);
 
-  hintText.innerHTML = text;
+  hintElem.innerHTML = text;
   setTimeout(() => {
-    hintText.innerHTML = previousText;
+    hintElem.innerHTML = previousText;
     questionIcon.style.color = 'white';
     colorChanged = false;
     clearInterval(iconChangeTimer);

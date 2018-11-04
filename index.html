@@ -9,7 +9,22 @@
   <title>Document</title>
 </head>
 <body>
-  <header>
+  <div class="loading-page">
+    <div class="loading-page__logo">
+      <img src="images/logoIcon.png">
+      <img src="images/logoText.png">
+      <img src="images/icons/clouds.png">
+    </div>
+    <form class="loading-page__search">
+      <input name="city-name" type="text" placeholder="Type city name">
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+    <div class="loading-page__hint">
+      <i class="far fa-question-circle"></i>
+      <span class = "hint-text">Type a city name in the bar and press 'Enter' or search button to change location.</span>
+    </div>
+  </div>
+  <header class="hidden">
     <div class="logo-block">
       <div class="logo">
         <img src="images/logoIcon.png">
@@ -26,17 +41,16 @@
         <input name="city-name" type="text" placeholder="Type city name">
         <button type="submit"><i class="fas fa-search"></i></button>
       </form>
-      <div class="current-location">
-
+      <div class="current-location">Unknown
       </div>
     </div>
   </header>
-  <main>
+  <main class="hidden">
     <div class="current-weather">
-      <div class="current-weather-icon"></div>
-      <div class="current-weather-temperature">
+      <div class="current-weather__icon"></div>
+      <div class="current-weather__temperature">
       </div>
-      <ul class="current-weather-data">
+      <ul class="current-weather__data">
         <li></li>
         <li></li>
         <li></li>
@@ -46,41 +60,41 @@
     <ul class="days-container">
       <li>
         <ul class="day-info">
-          <li class="day-info-date"></li>
-          <li class="day-info-weather"></li>
-          <li class="day-info-temp"></li>
+          <li class="day-info__date"></li>
+          <li class="day-info__weather"></li>
+          <li class="day-info__temp"></li>
           </li>
         </ul>
       </li>
       <li>
         <ul class="day-info">
-          <li class="day-info-date"></li>
-          <li class="day-info-weather"></li>
-          <li class="day-info-temp"></li>
+          <li class="day-info__date"></li>
+          <li class="day-info__weather"></li>
+          <li class="day-info__temp"></li>
           </li>
         </ul>
       </li>
       <li>
         <ul class="day-info">
-          <li class="day-info-date"></li>
-          <li class="day-info-weather"></li>
-          <li class="day-info-temp"></li>
+          <li class="day-info__date"></li>
+          <li class="day-info__weather"></li>
+          <li class="day-info__temp"></li>
           </li>
         </ul>
       </li>
       <li>
         <ul class="day-info">
-          <li class="day-info-date"></li>
-          <li class="day-info-weather"></li>
-          <li class="day-info-temp"></li>
+          <li class="day-info__date"></li>
+          <li class="day-info__weather"></li>
+          <li class="day-info__temp"></li>
           </li>
         </ul>
       </li>
       <li>
         <ul class="day-info">
-          <li class="day-info-date"></li>
-          <li class="day-info-weather"></li>
-          <li class="day-info-temp"></li>
+          <li class="day-info__date"></li>
+          <li class="day-info__weather"></li>
+          <li class="day-info__temp"></li>
           </li>
         </ul>
       </li>
@@ -94,7 +108,7 @@
       <tr><td>Wind</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
   </main>
-  <footer>
+  <footer class="hidden">
     <a class="social-github" target="_blank" href="https://github.com/DanteTheDevil/TouchTheSun"></a>
   </footer>
 <script type="text/javascript" src="bundle.js"></script></body>

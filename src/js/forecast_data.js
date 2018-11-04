@@ -1,9 +1,9 @@
 import {getSymbol} from './current_data.js';
 
 export function fillForecastData (elem) {
-  const daysDate = document.querySelectorAll('.day-info-date');
-  const daysWeather = document.querySelectorAll('.day-info-weather');
-  const daysTemp = document.querySelectorAll('.day-info-temp');
+  const daysDate = document.querySelectorAll('.day-info__date');
+  const daysWeather = document.querySelectorAll('.day-info__weather');
+  const daysTemp = document.querySelectorAll('.day-info__temp');
   const data = elem.data;
 
   for (let i = 0; i < 5; i++) {

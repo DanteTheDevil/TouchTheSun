@@ -25,8 +25,6 @@ export function createDetailData (elem) {
   fillDetailData(0);
 }
 
-
-
 export function fillDetailData (index) {
   const table = document.querySelector('.detail-weather');
   const timeCells = table.rows[0].cells;

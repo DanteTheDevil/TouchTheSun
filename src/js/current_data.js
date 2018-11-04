@@ -1,8 +1,8 @@
 export function fillCurrentData (elem){
   const location = document.querySelector('.current-location');
-  const weatherIconBlock = document.querySelector('.current-weather-icon');
-  const temp = document.querySelector('.current-weather-temperature');
-  const weather_data = document.querySelector('.current-weather-data').children;
+  const weatherIconBlock = document.querySelector('.current-weather__icon');
+  const temp = document.querySelector('.current-weather__temperature');
+  const weather_data = document.querySelector('.current-weather__data').children;
   const data = elem.data[0];
   const cityName = data.city_name;
   const countryName = data.country_code;

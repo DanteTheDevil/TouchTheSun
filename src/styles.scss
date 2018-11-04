@@ -1,27 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Anton');
 
-%display-flex {
+%flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-body {
-  @extend %display-flex;
+@import './scss/loading';
 
-  justify-content: center;
+body {
+  @extend %flex-center;
+
+  justify-content: flex-start;
   flex-direction: column;
-  align-items: center;
   font: 14px 'Anton', sans-serif;
   height: 1250px;
   background-image: url(./images/background.jpg);
   background-size: auto 100%;
   background-repeat: no-repeat;
-  min-width: 900px;
+  margin: 0;
 }
 
 header {
-  @extend %display-flex;
+  @extend %flex-center;
 
   flex-direction: column;
   justify-content: space-between;
@@ -33,7 +34,7 @@ header {
 @import './scss/header';
 
 main {
-  @extend %display-flex;
+  @extend %flex-center;
 
   justify-content: flex-start;
   flex-direction: column;
@@ -45,7 +46,7 @@ main {
 @import './scss/main';
 
 footer {
-  @extend %display-flex;
+  @extend %flex-center;
 
   width: 800px;
   height: 55px;
@@ -54,3 +55,5 @@ footer {
 }
 
 @import './scss/footer';
+
+

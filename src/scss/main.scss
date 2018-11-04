@@ -5,7 +5,7 @@ $block-background-color: rgba(52, 52, 52, 0.31);
   width: 100%;
   height: 27%;
 
-  &-icon {
+  &__icon {
     width: 18%;
     height: 100%;
     padding: 0;
@@ -19,7 +19,7 @@ $block-background-color: rgba(52, 52, 52, 0.31);
     }
   }
 
-  &-temperature {
+  &__temperature {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +36,7 @@ $block-background-color: rgba(52, 52, 52, 0.31);
     }
   }
 
-  &-data {
+  &__data {
     display: flex;
     flex-direction: column;
     width: 38.5%;
@@ -110,13 +110,13 @@ $block-background-color: rgba(52, 52, 52, 0.31);
     font-size: 25px;
   }
 
-  &-weather {
+  &__weather {
     img {
       width: 50%;
     }
   }
 
-  &-temp {
+  &__temp {
     img {
       width: 12%;
       margin-left: 1%;
