@@ -18,8 +18,8 @@
 
 ## Mockups
 
-<div>
-<a href="https://ibb.co/eLB3Sf"><img src="https://thumb.ibb.co/eLB3Sf/loading-Page.jpg" alt="loading-Page" border="0" /></a>&#x2007<a href="https://ibb.co/dgQ8tL"><img src="https://thumb.ibb.co/dgQ8tL/main-Page-fullsize.jpg" alt="main-Page-fullsize" border="0" /></a> <a href="https://ibb.co/jzj1DL"><img src="https://thumb.ibb.co/jzj1DL/main-Page-first-Part-no-zoom.jpg" alt="main-Page-first-Part-no-zoom" border="0" /></a> <a href="https://ibb.co/hEoiSf"><img src="https://thumb.ibb.co/hEoiSf/main-Page-second-Part-no-zoom.jpg" alt="main-Page-second-Part-no-zoom" border="0" /></a> 
+<div align="center">
+<a href="https://ibb.co/eLB3Sf"><img src="https://thumb.ibb.co/eLB3Sf/loading-Page.jpg" alt="loading-Page" border="0" /></a>&#x2007<a href="https://ibb.co/dgQ8tL"><img src="https://thumb.ibb.co/dgQ8tL/main-Page-fullsize.jpg" alt="main-Page-fullsize" border="0" /></a>&#x2007<a href="https://ibb.co/jzj1DL"><img src="https://thumb.ibb.co/jzj1DL/main-Page-first-Part-no-zoom.jpg" alt="main-Page-first-Part-no-zoom" border="0" /></a>&#x2007<a href="https://ibb.co/hEoiSf"><img src="https://thumb.ibb.co/hEoiSf/main-Page-second-Part-no-zoom.jpg" alt="main-Page-second-Part-no-zoom" border="0" /></a> 
 </div>
 
 
