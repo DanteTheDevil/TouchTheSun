@@ -3,10 +3,8 @@ import {getData} from './js/get_data.js';
 import {fillDetailData} from './js/detail_data.js';
 
 const mainSearch = document.querySelector('.search-bar');
-const loaingSearch = document.querySelector('.loading-page__search');
+const loadingSearch = document.querySelector('.loading-page__search');
 const daysContainer = document.querySelector('.days-container');
-
-
 
 daysContainer.addEventListener('click', event => {
   let target = event.target;
@@ -23,33 +21,26 @@ daysContainer.addEventListener('click', event => {
   }
 });
 
-mainSearch.addEventListener('submit', event => {
+mainSearch.addEventListener('submit', function () {
   const object = new FormData(event.target);
   const city = object.get('city-name');
   const hint = document.querySelector('.hint');
+  const elem = this.dataset.name;
 
-  getData(city, hint);
+  getData(city, hint, elem);
   event.preventDefault();
+  this.reset();
 });
 
-loaingSearch.addEventListener('submit', event => {
+loadingSearch.addEventListener('submit', function () {
   const object = new FormData(event.target);
   const city = object.get('city-name');
   const hint = document.querySelector('.loading-page__hint');
-  const main = document.querySelector('main');
-  const footer = document.querySelector('footer');
-  const header = document.querySelector('header');
-  const loadingPage = document.querySelector('.loading-page');
+  const elem = this.dataset.name;
 
-  if (getData(city, hint)) {
-    const loadingTime = 5000;
-
-    setTimeout(() => {
-      main.className = 'none';
-      footer.className = 'none';
-      header.className = 'none';
-      loadingPage.className = 'hidden';
-    }, loadingTime);
-  }
+  getData(city, hint, elem);
   event.preventDefault();
+  this.reset();
 });
+
+

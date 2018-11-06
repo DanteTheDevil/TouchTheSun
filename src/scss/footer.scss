@@ -1,1 +1,18 @@
+$block-background-color: rgba(52, 52, 52, 0.31);
 
+.social-github {
+  text-decoration: none;
+  color: white;
+
+  &:visited {
+    color: rgba(52, 52, 52, 0.31);
+  }
+
+  i {
+    font-size: 35px;
+
+    &:hover {
+      color: white;
+    }
+  }
+}

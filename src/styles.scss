@@ -15,10 +15,9 @@ body {
   flex-direction: column;
   font: 14px 'Anton', sans-serif;
   height: 1250px;
-  background-image: url(./images/background.jpg);
-  background-size: auto 100%;
-  background-repeat: no-repeat;
+  background-color: #89d6dc;
   margin: 0;
+  overflow: hidden;
 }
 
 header {
@@ -55,5 +54,4 @@ footer {
 }
 
 @import './scss/footer';
-
 

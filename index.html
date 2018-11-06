@@ -9,13 +9,13 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="loading-page">
+  <div  class="loading-page">
     <div class="loading-page__logo">
       <img src="images/logoIcon.png">
       <img src="images/logoText.png">
       <img src="images/icons/clouds.png">
     </div>
-    <form class="loading-page__search">
+    <form data-name="loading-search" class="loading-page__search">
       <input name="city-name" type="text" placeholder="Type city name">
       <button type="submit"><i class="fas fa-search"></i></button>
     </form>
@@ -23,6 +23,7 @@
       <i class="far fa-question-circle"></i>
       <span class = "hint-text">Type a city name in the bar and press 'Enter' or search button to change location.</span>
     </div>
+    <div class="loading-page__loading-icon hidden"></div>
   </div>
   <header class="hidden">
     <div class="logo-block">
@@ -37,7 +38,7 @@
       </div>
     </div>
     <div class="location">
-      <form class="search-bar">
+      <form data-name="main-search" class="search-bar">
         <input name="city-name" type="text" placeholder="Type city name">
         <button type="submit"><i class="fas fa-search"></i></button>
       </form>
@@ -100,16 +101,10 @@
       </li>
     </ul>
     <table class="detail-weather">
-      <tr><td>Time</td><td>00:00</td><td>03:00</td><td>06:00</td><td>09:00</td><td>12:00</td><td>15:00</td><td>18:00</td><td>21:00</td></tr>
-      <tr><td>Weather</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Temperature</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Pressure</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Humidity</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-      <tr><td>Wind</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
     </table>
   </main>
   <footer class="hidden">
-    <a class="social-github" target="_blank" href="https://github.com/DanteTheDevil/TouchTheSun"></a>
+    <a class="social-github" target="_blank" href="https://github.com/DanteTheDevil/TouchTheSun"><i class="fab fa-github"></i></a>
   </footer>
 <script type="text/javascript" src="bundle.js"></script></body>
 </html>
