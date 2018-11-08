@@ -2,7 +2,7 @@
 
 This project is open for anyone. I appreciate anybody, who wants to improve the project with some new ideas or help me to fix bugs. 
 Also i need to say, that source code isn't perfect, as i used only knowledge and expirience, that i have at the moment. 
-If you know how to make it more simple, readable and help this project to work faster, then you are welcome. Thank you.
+If you know how to make it more simple, readable and help this project to work faster, then you are welcome. 
 
 ## Pull Request
 If you want to fix something, then you need to check issue list in a propriate section first - 
