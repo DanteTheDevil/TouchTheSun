@@ -26,4 +26,6 @@ Demo is availiable on gitHub pages: [Demo](https://dantethedevil.github.io/Touch
 
 ## Contribution guide
 
-[Please check our guide](link-to-contribution-guide)
+Contribution is a valuable part of any project, becouse a lot of people have a lot of unique ideas and skills, that may help it to 
+become much better. So, feel free to contribute - [Check our guide](https://github.com/DanteTheDevil/TouchTheSun/blob/master/CONTRIBUTING.md)
+
