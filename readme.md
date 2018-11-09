@@ -11,7 +11,7 @@ This is a 5 days weather forecast of any city of the world. Here you can check t
 2. Help non-developers, who want to check weather forecast.
 3. Help developers, who are interested in development of a similar project, but dont know what to start with.
 
-Demo is availiable on gitHub pages: [demo](https://dantethedevil.github.io/TouchTheSun/)  
+Demo is availiable on gitHub pages: [demo](https://dantethedevil.github.io/TouchTheSun/).  
 
 ## Tech stack
 
@@ -26,6 +26,6 @@ Demo is availiable on gitHub pages: [demo](https://dantethedevil.github.io/Touch
 
 ## Contribution guide
 
-Contribution is a valuable part of any project, becouse a lot of people have a lot of unique ideas and skills, that may help it to 
-become much better. So, feel free to contribute - [check our guide](https://github.com/DanteTheDevil/TouchTheSun/blob/master/CONTRIBUTING.md)
+Contribution is a valuable part of any project, becouse a lot of people have unique ideas and good skills, that may help project to 
+become much better. So, feel free to contribute - [check our guide](https://github.com/DanteTheDevil/TouchTheSun/blob/master/CONTRIBUTING.md).
 
