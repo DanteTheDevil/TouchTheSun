@@ -75,7 +75,7 @@ function createTable (values, time) {
       } else if (j === 0) {
         cell.innerHTML = values[i];
       } else if (i === 1) {
-        cell.innerHTML = '<img src="../images/icons/no_data.png">';
+        cell.innerHTML = '<img src="./images/icons/no_data.png">';
       }
     }
   }
