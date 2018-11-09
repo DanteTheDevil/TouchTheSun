@@ -23,13 +23,17 @@ export function getData (city, hint, elem) {
       return new Request(url);
     })
     .then(response => {
+      const loadingTime = 4000;
+
       fillCurrentData(JSON.parse(response));
-      setTimeout(() => loading('success', hint, elem), 4000);
+      setTimeout(() => loading('success', hint, elem), loadingTime);
     })
     .catch(error => {
       switch (error.code) {
         case 204: {
-          setTimeout(() => loading('error', hint, elem), 2000);
+          const loadingTime = 2000;
+
+          setTimeout(() => loading('error', hint, elem), loadingTime);
           hintUpdate(hint, 'You have typed a wrong city name.\n Try again');
         }
       }
@@ -62,26 +66,27 @@ function loading (type, hint, elem) {
   const loadingIcon = document.querySelector('.loading-page__loading-icon');
   const body = document.body;
 
-  if (elem === 'loading-search'){
-    switch (type) {
-      case 'start': {
-        hint.classList.add('hidden');
-        loadingIcon.classList.remove('hidden');
-        break;
-      }
-      case 'success': {
-        main.classList.remove('hidden');
-        header.classList.remove('hidden');
-        footer.classList.remove('hidden');
-        loadingPage.classList.add('hidden');
-        body.style.overflow = 'auto';
-        break;
-      }
-      case 'error': {
-        hint.classList.remove('hidden');
-        loadingIcon.classList.add('hidden');
-        break;
-      }
+  if (elem !== 'loading-search') {
+    return;
+  }
+  switch (type) {
+    case 'start': {
+      hint.classList.add('hidden');
+      loadingIcon.classList.remove('hidden');
+      break;
+    }
+    case 'success': {
+      main.classList.remove('hidden');
+      header.classList.remove('hidden');
+      footer.classList.remove('hidden');
+      loadingPage.classList.add('hidden');
+      body.style.overflow = 'auto';
+      break;
+    }
+    case 'error': {
+      hint.classList.remove('hidden');
+      loadingIcon.classList.add('hidden');
+      break;
     }
   }
 }
@@ -94,13 +99,8 @@ function hintUpdate (hintElem, text) {
   const updateTime = 7000;
   const colorChangeTime = 400;
   const iconChangeTimer = setInterval(() => {
-    if (!colorChanged) {
-      questionIcon.style.color = 'red';
-      colorChanged = true;
-    } else {
-      questionIcon.style.color = 'white';
-      colorChanged = false;
-    }
+    questionIcon.style.color = colorChanged ? 'white' : 'red';
+    colorChanged = !colorChanged;
   }, colorChangeTime);
 
   hintText.innerHTML = text;

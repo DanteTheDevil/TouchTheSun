@@ -7,7 +7,7 @@ const loadingSearch = document.querySelector('.loading-page__search');
 const daysContainer = document.querySelector('.days-container');
 
 daysContainer.addEventListener('click', event => {
-  let target = event.target;
+  let {target} = event;
   const days = document.querySelectorAll('.day-info');
 
   while (target !== daysContainer) {
@@ -21,26 +21,24 @@ daysContainer.addEventListener('click', event => {
   }
 });
 
-mainSearch.addEventListener('submit', function () {
+mainSearch.addEventListener('submit', onSubmitForm);
+loadingSearch.addEventListener('submit', onSubmitForm);
+
+function onSubmitForm (event) {
   const object = new FormData(event.target);
   const city = object.get('city-name');
-  const hint = document.querySelector('.hint');
   const elem = this.dataset.name;
+  const hint = getHint(elem);
 
   getData(city, hint, elem);
   event.preventDefault();
   this.reset();
-});
+}
 
-loadingSearch.addEventListener('submit', function () {
-  const object = new FormData(event.target);
-  const city = object.get('city-name');
-  const hint = document.querySelector('.loading-page__hint');
-  const elem = this.dataset.name;
-
-  getData(city, hint, elem);
-  event.preventDefault();
-  this.reset();
-});
-
-
+function getHint (elem) {
+  switch (elem) {
+    case 'main-search': return document.querySelector('.hint');
+    case 'loading-search': return document.querySelector('.loading-page__hint');
+  }
+  return false;
+}
