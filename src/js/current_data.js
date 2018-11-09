@@ -24,6 +24,7 @@ export function fillCurrentData (elem){
     wind: '<i class="fas fa-wind"></i>',
     location: '<i class="fas fa-map-marker-alt"></i>'
   };
+
   location.innerHTML = `${icons.location}<span>${cityName}, ${countryName}</span>`;
   weatherIconBlock.innerHTML = `<img src="./images/icons/${weatherIcon}.png">`;
   temp.innerHTML = `${Math.round(data.temp)}<img src="./images/icons/${tempSymbol}.png">`;
@@ -36,6 +37,7 @@ export function fillCurrentData (elem){
 export function getSymbol (value) {
   return value > 0 ? 'plus' : 'minus';
 }
+
 function formatHours (utc, difference) {
   return utc + difference >= 24 ? utc + difference - 24 : utc + difference;
 }

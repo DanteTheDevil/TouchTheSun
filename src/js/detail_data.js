@@ -4,12 +4,13 @@ export function createDetailData (elem) {
   const data = elem.data;
   const firstElemDate = data[0].timestamp_local;
   let day = [data[0]];
-  let previousDate = +firstElemDate.slice(8,10);
+  let previousDate = parseInt(firstElemDate.slice(8,10), 10);
 
   daysContainerData = [];
+
   for (let i = 1; i < data.length; i++) {
-    const elemDate = data[i].timestamp_local;
-    const date = +elemDate.slice(8,10);
+    const elemFullDate = data[i].timestamp_local;
+    const date = parseInt(elemFullDate.slice(8,10), 10);
 
     if (i < data.length - 1) {
       if (date === previousDate) {
@@ -35,14 +36,14 @@ export function fillDetailData (index) {
   table.innerHTML = '';
 
   for (let i = 1; i < timeCells.length; i++) {
-    const hours = timeCells[i].textContent.slice(0, 2);
+    const tableHours = timeCells[i].textContent.slice(0, 2);
     const dayLength = daysContainerData[index].length;
 
     for (let j = 0; j < dayLength; j++) {
       const day = daysContainerData[index];
-      const day_hours = day[j].timestamp_local.slice(11, 13);
+      const dayHours = day[j].timestamp_local.slice(11, 13);
 
-      if (day_hours === hours) {
+      if (dayHours === tableHours) {
         const icon = day[j].weather.icon;
         const temp = day[j].temp;
         const pres = day[j].pres;
@@ -74,7 +75,7 @@ function createTable (values, time) {
       } else if (j === 0) {
         cell.innerHTML = values[i];
       } else if (i === 1) {
-        cell.innerHTML = '<img src="./images/icons/no_data.png">';
+        cell.innerHTML = '<img src="../images/icons/no_data.png">';
       }
     }
   }
