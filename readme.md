@@ -2,7 +2,7 @@
 
 * Course curator - [Volodymyr Shevchuk](https://github.com/dosandk)
 * Front-camp [facebook](https://www.facebook.com/groups/270300106928894)
-* Thanks to [Victor Bilous](https://github.com/ViktorBilous) & [Andriy Plyasun](https://github.com/andrii-plyasun) for answers on my questions during the development.
+* Thanks to [Viktor Bilous](https://github.com/ViktorBilous) & [Andriy Plyasun](https://github.com/andrii-plyasun) for answers on my questions during the development.
 
 ## Touch The Sun
 
