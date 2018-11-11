@@ -1,7 +1,7 @@
 import {getTimezone} from './detail_data.js';
 
 export function fillCurrentData (elem){
-  const location = document.querySelector('.current-location');
+  const location = document.querySelector('.location__current-location');
   const weatherIconBlock = document.querySelector('.current-weather__icon');
   const temp = document.querySelector('.current-weather__temperature');
   const weather_data = document.querySelector('.current-weather__data').children;
@@ -32,6 +32,7 @@ export function fillCurrentData (elem){
   weather_data[1].innerHTML = `${icons.pressure}<span>${Math.round(pressure)} torr</span>`;
   weather_data[2].innerHTML = `${icons.humidity}<span>${humidity} %</span>`;
   weather_data[3].innerHTML = `${icons.wind}<span>${(wind).toFixed(1)} m/s</span>`;
+
 }
 
 export function getSymbol (value) {

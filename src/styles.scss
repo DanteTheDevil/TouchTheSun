@@ -9,9 +9,9 @@
 @import './scss/loading';
 
 body {
-  @extend %flex-center;
-
+  display: flex;
   justify-content: flex-start;
+  align-items: center;
   flex-direction: column;
   font: 14px 'Anton', sans-serif;
   height: 1250px;
