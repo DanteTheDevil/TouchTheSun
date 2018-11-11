@@ -2,11 +2,19 @@ import './styles.scss';
 import {getData} from './js/get_data.js';
 import {fillDetailData} from './js/detail_data.js';
 
-const mainSearch = document.querySelector('.search-bar');
-const loadingSearch = document.querySelector('.loading-page__search');
+const mainSearch = document.querySelector('.location__search');
 const daysContainer = document.querySelector('.days-container');
+const loadingPage = document.querySelector('.loading-page');
+const loadingSearch = loadingPage.querySelector('.loading-page__search');
 
-daysContainer.addEventListener('click', event => {
+mainSearch.inProcess = false;
+loadingSearch.inProcess = false;
+loadingPage.style.top = `${window.innerHeight / 2 - loadingPage.clientHeight / 1.8}px`;
+daysContainer.addEventListener('click', onClickDays);
+mainSearch.addEventListener('submit', onSubmitForm);
+loadingSearch.addEventListener('submit', onSubmitForm);
+
+function onClickDays (event) {
   let {target} = event;
   const days = document.querySelectorAll('.day-info');
 
@@ -19,10 +27,7 @@ daysContainer.addEventListener('click', event => {
     }
     target = target.parentNode;
   }
-});
-
-mainSearch.addEventListener('submit', onSubmitForm);
-loadingSearch.addEventListener('submit', onSubmitForm);
+}
 
 function onSubmitForm (event) {
   const object = new FormData(event.target);
@@ -30,7 +35,10 @@ function onSubmitForm (event) {
   const elem = this.dataset.name;
   const hint = getHint(elem);
 
-  getData(city, hint, elem);
+  if (!this.inProcess){
+    this.inProcess = true;
+    getData(city, hint, this);
+  }
   event.preventDefault();
   this.reset();
 }

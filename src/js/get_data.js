@@ -10,52 +10,47 @@ export function getData (city, hint, elem) {
   let url = `${detail_forecast}${city}&key=${api_id}`;
 
   loading('start', hint, elem);
-  new Request(url)
+
+  request(url)
     .then(response => {
-      createDetailData(JSON.parse(response));
+      createDetailData(response);
       fillDetailData(0);
       url = `${daily_forecast}${city}&days=5&key=${api_id}`;
-      return new Request(url);
+      return request(url);
     })
     .then(response => {
-      fillForecastData(JSON.parse(response));
+      fillForecastData(response);
       url = `${curr_forecast}${city}&key=${api_id}`;
-      return new Request(url);
+      return request(url);
     })
     .then(response => {
       const loadingTime = 4000;
-
-      fillCurrentData(JSON.parse(response));
+      fillCurrentData(response);
       setTimeout(() => loading('success', hint, elem), loadingTime);
     })
     .catch(error => {
-      switch (error.code) {
+      const errorCode = parseInt(error.message, 10);
+
+      switch (errorCode) {
         case 204: {
           const loadingTime = 2000;
 
           setTimeout(() => loading('error', hint, elem), loadingTime);
-          hintUpdate(hint, 'You have typed a wrong city name.\n Try again');
+          hintUpdate(hint, 'You have typed a wrong city name.\n Try again', elem);
+          break;
         }
       }
     });
 }
 
-function Request (url) {
-  return new Promise((resolve, reject) => {
-    const message = new XMLHttpRequest();
-
-    message.open('GET', url, true);
-    message.send();
-    message.onload = function () {
-      if (this.status === 200) {
-        resolve(this.response);
-      } else {
-        const error = new Error(this.statusText);
-        error.code = this.status;
-        reject(error);
+function request (url) {
+  return fetch(url)
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
       }
-    };
-  });
+      throw new Error(response.status);
+    });
 }
 
 function loading (type, hint, elem) {
@@ -65,8 +60,9 @@ function loading (type, hint, elem) {
   const loadingPage = document.querySelector('.loading-page');
   const loadingIcon = document.querySelector('.loading-page__loading-icon');
   const body = document.body;
+  const elemName = elem.dataset.name;
 
-  if (elem !== 'loading-search') {
+  if (elemName !== 'loading-search') {
     return;
   }
   switch (type) {
@@ -81,6 +77,7 @@ function loading (type, hint, elem) {
       footer.classList.remove('hidden');
       loadingPage.classList.add('hidden');
       body.style.overflow = 'auto';
+      elem.inProcess = false;
       break;
     }
     case 'error': {
@@ -91,7 +88,7 @@ function loading (type, hint, elem) {
   }
 }
 
-function hintUpdate (hintElem, text) {
+function hintUpdate (hintElem, text, elem) {
   let colorChanged = false;
   const questionIcon = hintElem.querySelector('.fa-question-circle');
   const previousText = hintElem.innerHTML;
@@ -109,5 +106,6 @@ function hintUpdate (hintElem, text) {
     questionIcon.style.color = 'white';
     colorChanged = false;
     clearInterval(iconChangeTimer);
+    elem.inProcess = false;
   }, updateTime);
 }

@@ -56,7 +56,7 @@ $block-background-color: rgba(52, 52, 52, 0.31);
   margin-top: 3%;
 }
 
-.search-bar {
+.location__search {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -99,7 +99,7 @@ $block-background-color: rgba(52, 52, 52, 0.31);
   }
 }
 
-.current-location {
+.location__current-location {
   display: flex;
   align-items: center;
   background-color: $block-background-color;

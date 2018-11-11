@@ -3,7 +3,7 @@ let daysContainerData = [];
 export function createDetailData (elem) {
   const data = elem.data;
   const firstElemDate = data[0].timestamp_local;
-  let day = [data[0]];
+  let dayArray = [data[0]];
   let previousDate = parseInt(firstElemDate.slice(8,10), 10);
 
   daysContainerData = [];
@@ -14,14 +14,14 @@ export function createDetailData (elem) {
 
     if (i < data.length - 1) {
       if (date === previousDate) {
-        day.push(data[i]);
+        dayArray.push(data[i]);
       } else {
-        daysContainerData.push(day);
-        day = [data[i]];
+        daysContainerData.push(dayArray);
+        dayArray = [data[i]];
         previousDate = date;
       }
     } else {
-      daysContainerData.push(day);
+      daysContainerData.push(dayArray);
     }
   }
 }
