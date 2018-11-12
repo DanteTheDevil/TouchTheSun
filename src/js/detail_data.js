@@ -27,7 +27,14 @@ export function createDetailData (elem) {
 }
 
 export function fillDetailData (index) {
-  const values = ['Time', 'Weather', 'Temperature', 'Pressure', 'Humidity', 'Wind'];
+  const values = [
+    '<i class="far fa-clock"></i>',
+    '<i class="fas fa-info"></i>',
+    '<i class="fas fa-thermometer-empty"></i>',
+    '<i class="fas fa-compress"></i>',
+    '<i class="fas fa-tint"></i>',
+    '<i class="fas fa-wind"></i>'
+  ];
   const time = ['', ...fixTimezoneHours()];
   const table = document.querySelector('.detail-weather');
   const tbody = createTable(values, time);

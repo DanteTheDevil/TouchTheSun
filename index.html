@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-  <title>Document</title>
+  <link rel="icon" href="./images/favicon.ico">
+  <title>Toch The Sun</title>
 </head>
 <body>
   <div  class="loading-page">
@@ -25,7 +27,7 @@
     </div>
     <div class="loading-page__loading-icon hidden"></div>
   </div>
-  <header class="hidden">
+  <header class="hidden" >
     <div class="logo-block">
       <div class="logo">
         <img src="images/logoIcon.png">
@@ -46,10 +48,12 @@
       </div>
     </div>
   </header>
-  <main class="hidden">
+  <main class="hidden" >
     <div class="current-weather">
-      <div class="current-weather__icon"></div>
-      <div class="current-weather__temperature">
+      <div class="current-weather__basic">
+        <div class="current-weather__icon"></div>
+        <div class="current-weather__temperature">
+      </div>
       </div>
       <ul class="current-weather__data">
         <li></li>
@@ -58,53 +62,58 @@
         <li></li>
       </ul>
     </div>
-    <ul class="days-container">
-      <li>
-        <ul class="day-info">
-          <li class="day-info__date"></li>
-          <li class="day-info__weather"></li>
-          <li class="day-info__temp"></li>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <ul class="day-info">
-          <li class="day-info__date"></li>
-          <li class="day-info__weather"></li>
-          <li class="day-info__temp"></li>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <ul class="day-info">
-          <li class="day-info__date"></li>
-          <li class="day-info__weather"></li>
-          <li class="day-info__temp"></li>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <ul class="day-info">
-          <li class="day-info__date"></li>
-          <li class="day-info__weather"></li>
-          <li class="day-info__temp"></li>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <ul class="day-info">
-          <li class="day-info__date"></li>
-          <li class="day-info__weather"></li>
-          <li class="day-info__temp"></li>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <table class="detail-weather">
-    </table>
+    <div class="days-container">
+      <ul >
+        <li>
+          <ul class="day-info">
+            <li class="day-info__date"></li>
+            <li class="day-info__weather"></li>
+            <li class="day-info__temp"></li>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="day-info">
+            <li class="day-info__date"></li>
+            <li class="day-info__weather"></li>
+            <li class="day-info__temp"></li>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="day-info">
+            <li class="day-info__date"></li>
+            <li class="day-info__weather"></li>
+            <li class="day-info__temp"></li>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="day-info">
+            <li class="day-info__date"></li>
+            <li class="day-info__weather"></li>
+            <li class="day-info__temp"></li>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul class="day-info">
+            <li class="day-info__date"></li>
+            <li class="day-info__weather"></li>
+            <li class="day-info__temp"></li>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="table-container">
+      <table class="detail-weather">
+      </table>
+    </div>
   </main>
   <footer class="hidden">
     <a class="social-github" target="_blank" href="https://github.com/DanteTheDevil/TouchTheSun"><i class="fab fa-github"></i></a>
   </footer>
+</div>
 <script type="text/javascript" src="bundle.js"></script></body>
 </html>
