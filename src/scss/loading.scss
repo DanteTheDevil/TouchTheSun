@@ -184,3 +184,34 @@ $block-background-color: rgba(52, 52, 52, 0.31);
     }
   }
 }
+
+@media only screen and (max-height: 550px) and (orientation: landscape) {
+  .loading-page {
+    height: 300px;
+    margin: 3% 0 0 0;
+  }
+
+  .loading-page__logo {
+    height: 35%;
+
+    img {
+      width: 25%;
+
+      &:nth-child(2) {
+        display: none;
+      }
+
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+
+  .loading-page__search {
+    height: 20%;
+  }
+
+  .loading-page__hint {
+    height: 35%;
+  }
+}
