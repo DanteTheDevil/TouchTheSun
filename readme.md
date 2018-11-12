@@ -13,10 +13,11 @@ This is a 5 days weather forecast of any city of the world. Here you can check t
 
 Demo is availiable on gitHub pages: [demo](https://dantethedevil.github.io/TouchTheSun/).  
 
-## Tech stack
+## Tech stack & features
 
 * javascript 
 * html/css/scss
+* adaptive design for mobile devices
 
 ## Mockups
 
