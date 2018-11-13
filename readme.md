@@ -18,6 +18,8 @@ Demo is availiable on gitHub pages: [demo](https://dantethedevil.github.io/Touch
 * javascript 
 * html/css/scss
 * adaptive design for mobile devices
+* offline support with service worker
+* continuous integration with Travis
 
 ## Mockups
 
