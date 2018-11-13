@@ -244,8 +244,15 @@ $block-background-color: rgba(52, 52, 52, 0.31);
 
   .day-info {
     li {
-      margin: 0;
-      padding: 0;
+      &:nth-child(2) {
+        margin: 0;
+        padding: 0;
+      }
+
+      &:nth-child(3) {
+        margin: 0;
+        padding: 0;
+      }
     }
 
     &__date {
@@ -268,12 +275,12 @@ $block-background-color: rgba(52, 52, 52, 0.31);
     height: 20%;
     overflow-x: auto;
 
-    li {
+    ul > li {
       margin-left: 10px;
-    }
 
-    li:nth-child(1) {
-      margin-left: 0;
+      &:nth-child(1) {
+        margin-left: 0;
+      }
     }
   }
 
