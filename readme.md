@@ -4,8 +4,7 @@
 * Front-camp [facebook](https://www.facebook.com/groups/270300106928894)
 * Thanks to [Viktor Bilous](https://github.com/ViktorBilous) & [Andriy Plyasun](https://github.com/andrii-plyasun) for answers on my questions during the development.
 
-## Touch The Sun
-
+## Touch The Sun  [![Build Status](https://travis-ci.org/DanteTheDevil/TouchTheSun.svg?branch=master)](https://travis-ci.org/DanteTheDevil/TouchTheSun)
 This is a 5 days weather forecast of any city of the world. Here you can check temperature, humidity, preassure, wind and weather type for every 3 hours of a day. All data are actual for the local timezone. This project was implemented for the next purposes:
 1. Show my pure javascript skills on the Eleks FrontEnd Camp 2018.
 2. Help non-developers, who want to check weather forecast.
