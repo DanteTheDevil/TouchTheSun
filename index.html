@@ -27,7 +27,7 @@
     </div>
     <div class="loading-page__loading-icon hidden"></div>
   </div>
-  <header class="hidden" >
+  <header class="hidden">
     <div class="logo-block">
       <div class="logo">
         <img src="images/logoIcon.png">
@@ -48,7 +48,7 @@
       </div>
     </div>
   </header>
-  <main class="hidden" >
+  <main class="hidden">
     <div class="current-weather">
       <div class="current-weather__basic">
         <div class="current-weather__icon"></div>
@@ -69,7 +69,6 @@
             <li class="day-info__date"></li>
             <li class="day-info__weather"></li>
             <li class="day-info__temp"></li>
-            </li>
           </ul>
         </li>
         <li>
@@ -77,7 +76,6 @@
             <li class="day-info__date"></li>
             <li class="day-info__weather"></li>
             <li class="day-info__temp"></li>
-            </li>
           </ul>
         </li>
         <li>
@@ -85,7 +83,6 @@
             <li class="day-info__date"></li>
             <li class="day-info__weather"></li>
             <li class="day-info__temp"></li>
-            </li>
           </ul>
         </li>
         <li>
@@ -93,7 +90,6 @@
             <li class="day-info__date"></li>
             <li class="day-info__weather"></li>
             <li class="day-info__temp"></li>
-            </li>
           </ul>
         </li>
         <li>
@@ -101,7 +97,6 @@
             <li class="day-info__date"></li>
             <li class="day-info__weather"></li>
             <li class="day-info__temp"></li>
-            </li>
           </ul>
         </li>
       </ul>
@@ -114,6 +109,12 @@
   <footer class="hidden">
     <a class="social-github" target="_blank" href="https://github.com/DanteTheDevil/TouchTheSun"><i class="fab fa-github"></i></a>
   </footer>
-</div>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('./sw.js')
+        .then(function() { console.log("Service Worker Registered"); });
+    }
+  </script>
 <script type="text/javascript" src="bundle.js"></script></body>
 </html>
