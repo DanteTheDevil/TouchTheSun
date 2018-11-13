@@ -34,8 +34,7 @@ Demo is availiable on gitHub pages: [demo](https://dantethedevil.github.io/Touch
 
 ### Mobile
 <div class='Mobile' align="center">
-<a href="https://ibb.co/k7hUKf"><img src="https://thumb.ibb.co/k7hUKf/mobile-loading-page.jpg" alt="mobile-loading-page" border="0"></a>
-&#x2007<a href="https://ibb.co/gNAGzf"><img src="https://thumb.ibb.co/gNAGzf/mobile-main-part-1.jpg" alt="mobile-main-part-1" border="0"></a>&#x2007<a href="https://ibb.co/cQNwzf"><img src="https://thumb.ibb.co/cQNwzf/mobile-main-part-2.jpg" alt="mobile-main-part-2" border="0"></a>&#x2007<a href="https://ibb.co/ezjn5L"><img src="https://thumb.ibb.co/ezjn5L/mobile-main-part-3.jpg" alt="mobile-main-part-3" border="0"></a>
+<a href="https://ibb.co/k7hUKf"><img src="https://thumb.ibb.co/k7hUKf/mobile-loading-page.jpg" alt="mobile-loading-page" border="0"></a>&#x2007<a href="https://ibb.co/gNAGzf"><img src="https://thumb.ibb.co/gNAGzf/mobile-main-part-1.jpg" alt="mobile-main-part-1" border="0"></a>&#x2007<a href="https://ibb.co/cQNwzf"><img src="https://thumb.ibb.co/cQNwzf/mobile-main-part-2.jpg" alt="mobile-main-part-2" border="0"></a>&#x2007<a href="https://ibb.co/ezjn5L"><img src="https://thumb.ibb.co/ezjn5L/mobile-main-part-3.jpg" alt="mobile-main-part-3" border="0"></a>
 </div>
 
 ## Contribution guide
