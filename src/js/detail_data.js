@@ -35,7 +35,7 @@ export function fillDetailData (index) {
     '<i class="fas fa-tint"></i>',
     '<i class="fas fa-wind"></i>'
   ];
-  const time = ['', ...fixTimezoneHours()];
+  const time = ['', ...fixTimezoneHours(daysContainerData)];
   const table = document.querySelector('.detail-weather');
   const tbody = createTable(values, time);
   const timeCells = tbody.rows[0].cells;
@@ -89,9 +89,9 @@ function createTable (values, time) {
   return tbody;
 }
 
-function fixTimezoneHours () {
+function fixTimezoneHours (daysContainer) {
   const hours = [];
-  const firstDayInfo = daysContainerData[1];
+  const firstDayInfo = daysContainer[1];
 
   for (let i = 0; i < firstDayInfo.length; i++) {
     const hour = firstDayInfo[i].timestamp_local.slice(11, 13);

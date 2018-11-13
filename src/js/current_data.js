@@ -13,10 +13,9 @@ export function fillCurrentData (elem){
   const humidity = data.rh;
   const wind = data.wind_spd;
   const tempSymbol = getSymbol(data.temp);
-  const timeUtc = parseInt(data.ob_time.slice(11, 13));
   const timeDifference = getTimezone();
-  const hours = formatHours(timeUtc, timeDifference);
-  const min = formatMinutes(data.ob_time);
+  const hours = formatHours(new Date, timeDifference);
+  const min = formatMinutes(new Date());
   const icons = {
     clock: '<i class="far fa-clock"></i>',
     pressure: '<i class="fas fa-compress"></i>',
@@ -38,9 +37,9 @@ export function getSymbol (value) {
   return value > 0 ? 'plus' : 'minus';
 }
 
-function formatHours (utc, difference) {
-  const localZone = new Date().getTimezoneOffset() / 60;
-  const utcHours = new Date().getHours() + localZone;
+export function formatHours (date, difference) {
+  const localZone = date.getTimezoneOffset() / 60;
+  const utcHours = date.getHours() + localZone;
 
   if (utcHours + difference === 24) {
     return '00';
@@ -51,8 +50,8 @@ function formatHours (utc, difference) {
   }
 }
 
-function formatMinutes () {
-  const minutes = new Date().getMinutes();
+export function formatMinutes (date) {
+  const minutes = date.getMinutes();
 
   return minutes > 9 ? minutes : `0${minutes}`;
 }

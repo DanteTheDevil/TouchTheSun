@@ -16,7 +16,7 @@ export function getData (city, element) {
   request(url)
     .then(response => {
       createDetailData(response);
-      for (let i = 0; i < 5; i++) fillDetailData(i);
+      for (let i = 0; i < 5; i++) fillDetailData(i); // need to get cache images from days array for Service Worker
       fillDetailData(0);
       url = `${daily_forecast}${city}&days=5&key=${api_id}`;
       return request(url);
@@ -61,7 +61,7 @@ export function getData (city, element) {
     });
 }
 
-function request (url) {
+export function request (url) {
   return fetch(url)
     .then(response => {
       if (response.status === 200) {
