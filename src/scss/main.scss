@@ -242,6 +242,28 @@ $block-background-color: rgba(52, 52, 52, 0.31);
     }
   }
 
+  .day-info {
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__date {
+      font-size: 25px;
+    }
+
+    &__weather {
+      margin: 0;
+      padding: 0;
+    }
+
+    &__temp {
+      font-size: 25px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   .days-container {
     height: 20%;
     overflow-x: auto;
@@ -257,27 +279,6 @@ $block-background-color: rgba(52, 52, 52, 0.31);
 
   .table-container {
     overflow: auto;
-  }
-
-  .day-info {
-    li {
-      margin: 0;
-      padding: 0;
-    }
-    &__date {
-      font-size: 25px;
-    }
-
-    &__weather {
-      margin: 0;
-      padding: 0;
-    }
-
-    &__temp {
-      font-size: 25px;
-      margin: 0;
-      padding: 0;
-    }
   }
 
   .detail-weather {

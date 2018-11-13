@@ -2,17 +2,45 @@ import './styles.scss';
 import {getData} from './js/get_data.js';
 import {fillDetailData} from './js/detail_data.js';
 
-const mainSearch = document.querySelector('.location__search');
 const daysContainer = document.querySelector('.days-container');
 const loadingPage = document.querySelector('.loading-page');
-const loadingSearch = loadingPage.querySelector('.loading-page__search');
+const loadingSearch = {
+  obj: loadingPage.querySelector('.loading-page__search'),
+  hint: document.querySelector('.loading-page__hint'),
+  inProcess: false
+} ;
+const mainSearch = {
+  obj: document.querySelector('.location__search'),
+  hint: document.querySelector('.hint'),
+  inProcess: false
+};
 
-mainSearch.inProcess = false;
-loadingSearch.inProcess = false;
 loadingPage.style.top = `${window.innerHeight / 2 - loadingPage.clientHeight / 1.8}px`;
 daysContainer.addEventListener('click', onClickDays);
-mainSearch.addEventListener('submit', onSubmitForm);
-loadingSearch.addEventListener('submit', onSubmitForm);
+
+mainSearch.obj.addEventListener('submit', function (event) {
+  const object = new FormData(event.target);
+  const city = object.get('city-name');
+
+  if (!mainSearch.inProcess){
+    mainSearch.inProcess = true;
+    getData(city, mainSearch);
+  }
+  event.preventDefault();
+  this.reset();
+});
+
+loadingSearch.obj.addEventListener('submit', function (event) {
+  const object = new FormData(event.target);
+  const city = object.get('city-name');
+
+  if (!loadingSearch.inProcess){
+    loadingSearch.inProcess = true;
+    getData(city, loadingSearch);
+  }
+  event.preventDefault();
+  this.reset();
+});
 
 function onClickDays (event) {
   let {target} = event;
@@ -29,24 +57,3 @@ function onClickDays (event) {
   }
 }
 
-function onSubmitForm (event) {
-  const object = new FormData(event.target);
-  const city = object.get('city-name');
-  const elem = this.dataset.name;
-  const hint = getHint(elem);
-
-  if (!this.inProcess){
-    this.inProcess = true;
-    getData(city, hint, this);
-  }
-  event.preventDefault();
-  this.reset();
-}
-
-function getHint (elem) {
-  switch (elem) {
-    case 'main-search': return document.querySelector('.hint');
-    case 'loading-search': return document.querySelector('.loading-page__hint');
-  }
-  return false;
-}

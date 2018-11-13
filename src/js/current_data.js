@@ -32,7 +32,6 @@ export function fillCurrentData (elem){
   weather_data[1].innerHTML = `${icons.pressure}<span>${Math.round(pressure)} torr</span>`;
   weather_data[2].innerHTML = `${icons.humidity}<span>${humidity} %</span>`;
   weather_data[3].innerHTML = `${icons.wind}<span>${(wind).toFixed(1)} m/s</span>`;
-
 }
 
 export function getSymbol (value) {
@@ -40,11 +39,20 @@ export function getSymbol (value) {
 }
 
 function formatHours (utc, difference) {
-  return utc + difference >= 24 ? utc + difference - 24 : utc + difference;
+  const localZone = new Date().getTimezoneOffset() / 60;
+  const utcHours = new Date().getHours() + localZone;
+
+  if (utcHours + difference === 24) {
+    return '00';
+  } else if (utcHours + difference > 24) {
+    return utcHours + difference - 24;
+  } else {
+    return utcHours + difference;
+  }
 }
 
-function formatMinutes (date) {
-  const minutes = parseInt(date.slice(14));
+function formatMinutes () {
+  const minutes = new Date().getMinutes();
 
   return minutes > 9 ? minutes : `0${minutes}`;
 }
