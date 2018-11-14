@@ -16,7 +16,7 @@ export function getData (city, element) {
   request(url)
     .then(response => {
       createDetailData(response);
-      for (let i = 0; i < 5; i++) fillDetailData(i); // need to get cache images from days array for Service Worker
+      for (let i = 0; i < 5; i++) fillDetailData(i); // need to get all weather icons cache from days array for Service Worker
       fillDetailData(0);
       url = `${daily_forecast}${city}&days=5&key=${api_id}`;
       return request(url);
@@ -36,27 +36,13 @@ export function getData (city, element) {
     .catch(error => {
       const errorCode = parseInt(error.message, 10);
 
+      if (elemName === 'loading-search') {
+        loading('error', element);
+      }
       switch (errorCode) {
-        case 204: {
-          if (elemName === 'loading-search') {
-            loading('error', element);
-          }
-          hintUpdate(element, 'You have typed a wrong city name.\n Try again');
-          break;
-        }
-        case 400: {
-          if (elemName === 'loading-search') {
-            loading('error', element);
-          }
-          hintUpdate(element, 'Line is empty. Type city name');
-          break;
-        }
-        default: {
-          if (elemName === 'loading-search') {
-            loading('error', element);
-          }
-          element.inProcess = false;
-        }
+        case 204: return hintUpdate(element, 'You have typed a wrong city name.\n Try again');
+        case 400: return hintUpdate(element, 'Line is empty. Type city name');
+        default: return element.inProcess = false;
       }
     });
 }

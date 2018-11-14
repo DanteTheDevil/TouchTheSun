@@ -37,35 +37,47 @@ export function fillDetailData (index) {
   ];
   const time = ['', ...fixTimezoneHours(daysContainerData)];
   const table = document.querySelector('.detail-weather');
-  const tbody = createTable(values, time);
-  const timeCells = tbody.rows[0].cells;
+  const tBody = createTable(values, time);
+  const timeCells = tBody.rows[0].cells;
 
   table.innerHTML = '';
 
   for (let i = 1; i < timeCells.length; i++) {
     const tableHours = timeCells[i].textContent.slice(0, 2);
-    const dayLength = daysContainerData[index].length;
+    const args = [i, tableHours, tBody, index];
 
-    for (let j = 0; j < dayLength; j++) {
-      const day = daysContainerData[index];
-      const dayHours = day[j].timestamp_local.slice(11, 13);
+    fillTable(args);
+  }
+  table.append(tBody);
+}
 
-      if (dayHours === tableHours) {
-        const icon = day[j].weather.icon;
-        const temp = day[j].temp;
-        const pres = day[j].pres;
-        const humidity = day[j].rh;
-        const wind = day[j].wind_spd;
+function fillTable (args) {
+  const [index, tableHours, tBody, dayId] = args;
+  const dayLength = daysContainerData[dayId].length;
 
-        tbody.rows[1].cells[i].innerHTML = `<img src="./images/icons/${icon}.png">`;
-        tbody.rows[2].cells[i].innerHTML = Math.round(temp);
-        tbody.rows[3].cells[i].innerHTML = Math.round(pres);
-        tbody.rows[4].cells[i].innerHTML = Math.round(humidity);
-        tbody.rows[5].cells[i].innerHTML = Math.round(wind);
+  for (let j = 0; j < dayLength; j++) {
+    const day = daysContainerData[dayId];
+    const dayHours = day[j].timestamp_local.slice(11, 13);
+
+    if (dayHours === tableHours) {
+      const icon = day[j].weather.icon;
+      const data = [
+        null,
+        null,
+        day[j].temp,
+        day[j].pres,
+        day[j].rh,
+        day[j].wind_spd
+      ];
+
+      for (let k = 1; k < 6; k++) {
+        if (k === 1) {
+          return tBody.rows[k].cells[index].innerHTML = `<img src="./images/icons/${icon}.png">`;
+        }
+        tBody.rows[k].cells[index].innerHTML = Math.round(data[k]);
       }
     }
   }
-  table.append(tbody);
 }
 
 function createTable (values, time) {
@@ -89,16 +101,13 @@ function createTable (values, time) {
   return tbody;
 }
 
-function fixTimezoneHours (daysContainer) {
-  const hours = [];
+export function fixTimezoneHours (daysContainer) {
   const firstDayInfo = daysContainer[1];
 
-  for (let i = 0; i < firstDayInfo.length; i++) {
-    const hour = firstDayInfo[i].timestamp_local.slice(11, 13);
-    hours.push(hour);
-  }
-  hours.sort((a, b) => a - b);
-  return hours.map(value => `${value}:00`);
+  return firstDayInfo
+    .map(value => value.timestamp_local.slice(11, 13))
+    .sort((a, b) => a - b)
+    .map(value => `${value}:00`);
 }
 
 export function getTimezone () {
