@@ -42,5 +42,3 @@ Demo is availiable on gitHub pages: [demo](https://dantethedevil.github.io/Touch
 Contribution is a valuable part of any project, becouse a lot of people have unique ideas and good skills, that may help project to 
 become much better. So, feel free to contribute - [check our guide](https://github.com/DanteTheDevil/TouchTheSun/blob/master/CONTRIBUTING.md).
 
-## To Do
-* Need to completely fix timezones, becouse it works stable only with cities of Ukraine and some others timezones, but not with all of them.
