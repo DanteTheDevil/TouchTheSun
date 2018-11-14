@@ -44,10 +44,11 @@ export function getLocalTime (data) {
   const options = {hour: 'numeric', minute: 'numeric', timeZone: data.timezone};
   const date = new Date();
   const time = new Intl.DateTimeFormat(data.country_code, options).format(date);
-  const minutes = time.indexOf(':') === 1 ? parseInt(time.slice(2, 4)) : parseInt(time.slice(3, 5));
-  let hours = time.indexOf(':') === 1 ? parseInt(time.slice(0, 1)) : parseInt(time.slice(0, 2));
+  const minutes = time.indexOf(':') === 1 ? time.slice(2, 4) : time.slice(3, 5);
+  let hours = time.indexOf(':') === 1 ?
+    parseInt(time.slice(0, 1), 10) :
+    parseInt(time.slice(0, 2), 10);
 
   hours = time.includes('PM') ? hours + 12 : hours;
-
   return `${hours}:${minutes}`;
 }
