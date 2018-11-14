@@ -5,7 +5,6 @@ export function createDetailData (elem) {
   const firstElemDate = data[0].timestamp_local;
   let dayArray = [data[0]];
   let previousDate = parseInt(firstElemDate.slice(8,10), 10);
-
   daysContainerData = [];
 
   for (let i = 1; i < data.length; i++) {
@@ -69,8 +68,7 @@ function fillTable (args) {
         day[j].rh,
         day[j].wind_spd
       ];
-
-      for (let k = 1; k < 6; k++) {
+      for (let k = 1; k < tBody.rows.length; k++) {
         if (k === 1) {
           return tBody.rows[k].cells[index].innerHTML = `<img src="./images/icons/${icon}.png">`;
         }
@@ -101,20 +99,11 @@ function createTable (values, time) {
   return tbody;
 }
 
-export function fixTimezoneHours (daysContainer) {
+function fixTimezoneHours (daysContainer) {
   const firstDayInfo = daysContainer[1];
-
   return firstDayInfo
     .map(value => value.timestamp_local.slice(11, 13))
     .sort((a, b) => a - b)
     .map(value => `${value}:00`);
-}
-
-export function getTimezone () {
-  const firstDayTime = daysContainerData[1][0];
-  const localTime = parseInt(firstDayTime.timestamp_local.slice(11, 13));
-  const utcTime = parseInt(firstDayTime.timestamp_utc.slice(11, 13));
-
-  return localTime - utcTime;
 }
 

@@ -1,10 +1,10 @@
-import {getTimezone} from './detail_data.js';
+//import {getTimezone} from './detail_data.js';
 
 export function fillCurrentData (elem){
   const location = document.querySelector('.location__current-location');
   const weatherIconBlock = document.querySelector('.current-weather__icon');
   const temp = document.querySelector('.current-weather__temperature');
-  const weather_data = document.querySelector('.current-weather__data').children;
+  const weatherDataElems = document.querySelector('.current-weather__data').children;
   const data = elem.data[0];
   const cityName = data.city_name;
   const countryName = data.country_code;
@@ -13,9 +13,7 @@ export function fillCurrentData (elem){
   const humidity = data.rh;
   const wind = data.wind_spd;
   const tempSymbol = getSymbol(data.temp);
-  const timeDifference = getTimezone();
-  const hours = formatHours(new Date, timeDifference);
-  const min = formatMinutes(new Date());
+  const time = getLocalTime(data);
   const icons = {
     clock: '<i class="far fa-clock"></i>',
     pressure: '<i class="fas fa-compress"></i>',
@@ -23,36 +21,33 @@ export function fillCurrentData (elem){
     wind: '<i class="fas fa-wind"></i>',
     location: '<i class="fas fa-map-marker-alt"></i>'
   };
+  const weatherData = [
+    [`${icons.clock}<span>${time}</span>`],
+    [`${icons.pressure}<span>${Math.round(pressure)} torr</span>`],
+    [`${icons.humidity}<span>${humidity} %</span>`],
+    [`${icons.wind}<span>${(wind).toFixed(1)} m/s</span>`]
+  ];
 
   location.innerHTML = `${icons.location}<span>${cityName}, ${countryName}</span>`;
   weatherIconBlock.innerHTML = `<img src="./images/icons/${weatherIcon}.png">`;
   temp.innerHTML = `${Math.round(data.temp)}<img src="./images/icons/${tempSymbol}.png">`;
-  weather_data[0].innerHTML = `${icons.clock}<span>${hours}:${min}</span>`;
-  weather_data[1].innerHTML = `${icons.pressure}<span>${Math.round(pressure)} torr</span>`;
-  weather_data[2].innerHTML = `${icons.humidity}<span>${humidity} %</span>`;
-  weather_data[3].innerHTML = `${icons.wind}<span>${(wind).toFixed(1)} m/s</span>`;
+  for (let i = 0; i <  weatherDataElems.length; i++) {
+    weatherDataElems[i].innerHTML = weatherData[i];
+  }
 }
 
 export function getSymbol (value) {
   return value > 0 ? 'plus' : 'minus';
 }
 
-export function formatHours (date, difference) {
-  const localZone = date.getTimezoneOffset() / 60;
-  const currentHours = date.getHours() === 0 ? 24 : date.getHours();
-  const utcHours = currentHours + localZone;
+export function getLocalTime (data) {
+  const options = {hour: 'numeric', minute: 'numeric', timeZone: data.timezone};
+  const date = new Date();
+  const time = new Intl.DateTimeFormat(data.country_code, options).format(date);
+  const minutes = time.indexOf(':') === 1 ? parseInt(time.slice(2, 4)) : parseInt(time.slice(3, 5));
+  let hours = time.indexOf(':') === 1 ? parseInt(time.slice(0, 1)) : parseInt(time.slice(0, 2));
 
-  if (utcHours + difference === 24) {
-    return '00';
-  } else if (utcHours + difference > 24) {
-    return utcHours + difference - 24;
-  } else {
-    return utcHours + difference;
-  }
-}
+  hours = time.includes('PM') ? hours + 12 : hours;
 
-export function formatMinutes (date) {
-  const minutes = date.getMinutes();
-
-  return minutes > 9 ? minutes : `0${minutes}`;
+  return `${hours}:${minutes}`;
 }
