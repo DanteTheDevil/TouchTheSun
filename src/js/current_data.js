@@ -50,5 +50,6 @@ export function getLocalTime (data) {
     parseInt(time.slice(0, 2), 10);
 
   hours = time.includes('PM') ? hours + 12 : hours;
+
   return `${hours}:${minutes}`;
 }
