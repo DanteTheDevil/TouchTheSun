@@ -13,7 +13,7 @@ export function fillCurrentData (elem){
   const humidity = data.rh;
   const wind = data.wind_spd;
   const tempSymbol = getSymbol(data.temp);
-  const time = getLocalTime(data);
+  const time = getLocalTime(new Date(), data);
   const icons = {
     clock: '<i class="far fa-clock"></i>',
     pressure: '<i class="fas fa-compress"></i>',
@@ -40,9 +40,8 @@ export function getSymbol (value) {
   return value > 0 ? 'plus' : 'minus';
 }
 
-export function getLocalTime (data) {
+export function getLocalTime (date, data) {
   const options = {hour: 'numeric', minute: 'numeric', timeZone: data.timezone};
-  const date = new Date();
   const time = new Intl.DateTimeFormat(data.country_code, options).format(date);
   const minutes = time.indexOf(':') === 1 ? time.slice(2, 4) : time.slice(3, 5);
   let hours = time.indexOf(':') === 1 ?
@@ -50,6 +49,5 @@ export function getLocalTime (data) {
     parseInt(time.slice(0, 2), 10);
 
   hours = time.includes('PM') ? hours + 12 : hours;
-
   return `${hours}:${minutes}`;
 }

@@ -108,13 +108,12 @@
   <footer class="hidden">
     <a class="social-github" target="_blank" href="https://github.com/DanteTheDevil/TouchTheSun"><i class="fab fa-github"></i></a>
   </footer>
-
-<script type="text/javascript" src="bundle.js"></script></body>
-<script>
-  if('serviceWorker' in navigator) {
-    navigator.serviceWorker
-      .register('./sw.js')
-      .then(function() { console.log("Service Worker Registered"); });
-  }
-</script>
+  <script type="text/javascript" src="bundle.js"></script>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('./sw.js')
+        .then(function() { console.log("Service Worker Registered"); });
+    }
+  </script></body>
 </html>
