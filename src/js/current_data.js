@@ -39,7 +39,8 @@ export function getSymbol (value) {
 
 export function formatHours (date, difference) {
   const localZone = date.getTimezoneOffset() / 60;
-  const utcHours = date.getHours() + localZone;
+  const currentHours = date.getHours() === 0 ? 24 : date.getHours();
+  const utcHours = currentHours + localZone;
 
   if (utcHours + difference === 24) {
     return '00';

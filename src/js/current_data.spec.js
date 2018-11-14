@@ -1,6 +1,6 @@
 import {formatHours, formatMinutes} from './current_data.js';
 
-test('Must format to local hours', () => {
+test('Results local hours - (random date, difference between local and utc)', () => {
   expect(formatHours(new Date(1542117835629), 1)).toBe(15);
   expect(formatHours(new Date(1542117835629), 2)).toBe(16);
   expect(formatHours(new Date(1542117835629), 3)).toBe(17);
