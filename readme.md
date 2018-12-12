@@ -14,8 +14,8 @@ Demo is availiable on gitHub pages: [demo](https://dantethedevil.github.io/Touch
 
 ## Tech stack & features
 
-* javascript 
 * html/css/scss
+* javascript 
 * adaptive design for mobile devices
 * offline support with service worker
 * continuous integration with Travis
