@@ -1,10 +1,4 @@
----
-name: 'Issue: Bug report'
-about: Help us to become better
-
----
-
-**Short name(Few words which can describe a bug)**
+**Short name (Few words which can describe a bug)**
 
 
 
